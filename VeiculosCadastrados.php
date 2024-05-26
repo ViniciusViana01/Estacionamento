@@ -16,7 +16,7 @@
 </head>
 <body>
 <?php
-// Conexão com o banco de dados
+
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -27,12 +27,12 @@ if ($conn->connect_error) {
     die("Erro ao conectar ao banco de dados: " . $conn->connect_error);
 }
 
-// Processamento do formulário
+// processamento do formulário
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $modelo = $_POST['modelo'];
     $placa = $_POST['placa'];
 
-    // Inserir veículo no banco de dados
+    // inserir veículo no banco de dados
     $sql = "INSERT INTO veiculos (modelo, placa, hora_entrada) VALUES ('$modelo', '$placa', NOW())";
 
     if ($conn->query($sql) === TRUE) {
@@ -42,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 
-// Consulta os veículos cadastrados
+// consulta os veículos cadastrados
 $sql_veiculos = "SELECT modelo, placa FROM veiculos";
 $result_veiculos = $conn->query($sql_veiculos);
 

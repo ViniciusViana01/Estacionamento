@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adicionar Veículo</title>
-    <!-- Incluindo o Bootstrap -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body { font-family: 'Trebuchet MS', Arial, sans-serif; background-color: #222; color: #fff; padding: 20px; }
@@ -18,7 +17,7 @@
 </head>
 <body>
 <?php
-// Conexão com o banco de dados
+
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -29,12 +28,12 @@ if ($conn->connect_error) {
     die("Erro ao conectar ao banco de dados: " . $conn->connect_error);
 }
 
-// Processamento do formulário
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $modelo = $_POST['modelo'];
     $placa = $_POST['placa'];
 
-    // Inserir veículo no banco de dados
+    
     $sql = "INSERT INTO veiculos (modelo, placa, hora_entrada) VALUES ('$modelo', '$placa', NOW())";
 
     if ($conn->query($sql) === TRUE) {
